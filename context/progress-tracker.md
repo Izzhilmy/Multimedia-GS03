@@ -35,13 +35,20 @@ Units are ordered by dependency. Never skip ahead.
 
 ## Open Questions
 
-- Confirm whether `mmdb2026.stu.password` is plain text or hashed.
-  If hashed, switch AuthService to use `Hash::check()`.
-- Confirm exact columns available in `mmdb2026.stu`
-  (need: matric_no, full_name, password — check for phone_no, group_no).
+- ✅ `mmdb2026.stu.password` confirmed plain text. Use direct string comparison in AuthService.
 - Confirm whether CBR uses AI image model or rule-based visual feature inputs
   (current spec assumes student fills in visual feature fields manually,
   matching the UI design in the presentation slides).
+
+## Local mmdb2026 Simulation
+
+`mmdb2026.stu` recreated locally to match real schema (confirmed from screenshot).
+Full columns: `id`, `matric_no`, `full_name`, `phone_no`, `group_no`, `life_motto`,
+`password`, `photoStu`, `photoStu_date`, `docStu`, `docStu_date`.
+Password is plain text (values: NULL, 'qwerty', '123').
+Auth code must handle NULL password (treat as login disabled).
+11 real students seeded from the actual class DB screenshot.
+Use matric_no `B032420099` / password `123` for local dev testing.
 
 ---
 
