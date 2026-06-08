@@ -8,13 +8,13 @@ current state without re-reading all docs.
 
 ## Current Phase
 
-Unit 03 complete. Ready for Unit 04.
+Unit 04 complete. Ready for Unit 05.
 
 ---
 
 ## Current Goal
 
-Complete Unit 04: Auth — cross-DB login, session, middleware.
+Complete Unit 05: Gender Detection — form, ABR+TBR+CBR+fusion, result page.
 
 ---
 
@@ -27,7 +27,7 @@ Units are ordered by dependency. Never skip ahead.
 | 01 | Project setup — Laravel, dual DB config, folder structure | ✅ Complete |
 | 02 | Database migrations — gs03 tables | ✅ Complete |
 | 03 | Database objects — indexes, views | ✅ Complete |
-| 04 | Auth — cross-DB login against mmdb2026.stu, session, middleware | ⬜ Not started |
+| 04 | Auth — cross-DB login against mmdb2026.stu, session, middleware | ✅ Complete |
 | 05 | Gender detection — form, ABR+TBR+CBR+fusion, result page | ⬜ Not started |
 | 06 | History — student's past detection results | ⬜ Not started |
 
@@ -63,6 +63,17 @@ Use matric_no `B032420099` / password `123` for local dev testing.
 - `/login` route renders; `/` redirects to login
 - `php artisan storage:link` done
 - Both DB connections verified (`{"gs03":{"1":1},"mmdb":{"1":1}}`), /db-check route removed
+
+### Unit 04 — Auth
+- StuUser model (mmdb connection, stu table, read-only)
+- AuthService: plain-text password check, NULL password guard
+- AuthController: showLogin, login (session + regenerate), logout
+- AuthMiddleware registered as `student.auth` alias
+- Routes: GET/POST /login, POST /logout, all protected routes under middleware group
+- Login view: full dark-navy UI per ui-design.md (Cinzel/Lato, deco border, cream palette)
+- Layout: app.blade.php with navbar (matric_no, active links, logout)
+- Stub controllers/views for Detection and History (Units 05/06)
+- Verified: /login 200, /detection redirect→login, bad creds rejected, good creds→/detection, matric shown in nav
 
 ### Unit 03 — Database Objects
 - 4 indexes: idx_user_profiles_matric_no, idx_detection_results_user_profile_id, idx_detection_results_final_gender, idx_image_analysis_user_profile_id
