@@ -64,6 +64,22 @@ context/specs/
 
 ---
 
+## Local Development Credentials
+
+- MySQL root user: `root` / password: `password`
+- gs03 app user: `GS03` / password: `1234`
+- mmdb2026 connection: `root` / password: `password`
+
+---
+
+## UI Design Reference
+
+All UI work must follow `context/ui-design.md`.
+Read it before touching any Blade view or CSS.
+Do not invent colors, fonts, or spacing — every token is defined there.
+
+---
+
 ## Project-Specific Critical Rules
 
 - No single file exceeds 150 lines of code

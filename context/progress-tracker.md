@@ -8,13 +8,13 @@ current state without re-reading all docs.
 
 ## Current Phase
 
-Unit 01 complete. Ready for Unit 02.
+Unit 02 complete. Ready for Unit 03.
 
 ---
 
 ## Current Goal
 
-Complete Unit 02: Database Migrations (gs03 tables).
+Complete Unit 03: Database Objects (indexes, views).
 
 ---
 
@@ -25,7 +25,7 @@ Units are ordered by dependency. Never skip ahead.
 | # | Unit | Status |
 |---|---|---|
 | 01 | Project setup — Laravel, dual DB config, folder structure | ✅ Complete |
-| 02 | Database migrations — gs03 tables | ⬜ Not started |
+| 02 | Database migrations — gs03 tables | ✅ Complete |
 | 03 | Database objects — indexes, views | ⬜ Not started |
 | 04 | Auth — cross-DB login against mmdb2026.stu, session, middleware | ⬜ Not started |
 | 05 | Gender detection — form, ABR+TBR+CBR+fusion, result page | ⬜ Not started |
@@ -56,3 +56,10 @@ Units are ordered by dependency. Never skip ahead.
 - `/login` route renders; `/` redirects to login
 - `php artisan storage:link` done
 - Both DB connections verified (`{"gs03":{"1":1},"mmdb":{"1":1}}`), /db-check route removed
+
+### Unit 02 — Database Migrations
+- 5 tables created in gs03: user_profiles, id_card_info, text_info, image_analysis, detection_results
+- Foreign key constraints: all child tables cascade-delete from user_profiles
+- Default Laravel migrations (users, cache, jobs) left Pending — not used by this project
+- mmdb2026 untouched — verified no new tables
+- GS03 MySQL user confirmed able to connect and owns all gs03 tables
