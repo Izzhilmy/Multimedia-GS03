@@ -8,13 +8,13 @@ current state without re-reading all docs.
 
 ## Current Phase
 
-Unit 04 complete. Ready for Unit 05.
+Unit 05 complete. Ready for Unit 06.
 
 ---
 
 ## Current Goal
 
-Complete Unit 05: Gender Detection — form, ABR+TBR+CBR+fusion, result page.
+Complete Unit 06: History — student's past detection results.
 
 ---
 
@@ -28,7 +28,7 @@ Units are ordered by dependency. Never skip ahead.
 | 02 | Database migrations — gs03 tables | ✅ Complete |
 | 03 | Database objects — indexes, views | ✅ Complete |
 | 04 | Auth — cross-DB login against mmdb2026.stu, session, middleware | ✅ Complete |
-| 05 | Gender detection — form, ABR+TBR+CBR+fusion, result page | ⬜ Not started |
+| 05 | Gender detection — form, ABR+TBR+CBR+fusion, result page | ✅ Complete |
 | 06 | History — student's past detection results | ⬜ Not started |
 
 ---
@@ -63,6 +63,14 @@ Use matric_no `B032420099` / password `123` for local dev testing.
 - `/login` route renders; `/` redirects to login
 - `php artisan storage:link` done
 - Both DB connections verified (`{"gs03":{"1":1},"mmdb":{"1":1}}`), /db-check route removed
+
+### Unit 05 — Gender Detection
+- 5 services: AbrService (IC last digit), TbrService (name keywords), CbrService (visual features/scoring), DetectionFusionService (majority vote), DetectionResultService (gs03 persistence)
+- 5 models: UserProfile, IdCardInfo, TextInfo, ImageAnalysis, DetectionResult
+- DetectionController: showForm, analyze (runs all 3 + fusion + save + flash), showResult
+- Detection form: 2-col grid, photo upload with live preview, "Enter" preview button, dark-navy ui-design.md styling
+- Result page: 3-col grid, green retrieval cards, cyan final card, male/female badges, ghost/primary action buttons
+- Verified: all 3 retrievals run, 5 tables populated, result page renders with correct Male/Female output
 
 ### Unit 04 — Auth
 - StuUser model (mmdb connection, stu table, read-only)
