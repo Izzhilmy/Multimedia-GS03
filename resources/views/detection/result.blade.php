@@ -164,7 +164,17 @@
                 <div class="retrieval-card">
                     <div class="retrieval-title">Text Based Retrieval</div>
                     <div class="retrieval-row">Input Text : <strong>{{ $result['full_name'] }}</strong></div>
-                    <div class="retrieval-row">Keyword : <strong>"{{ $result['tbr']['detail']['keyword'] ?? 'none' }}"</strong></div>
+                    <div class="retrieval-row">Keyword :
+                        <strong>
+                            @php
+                                $kws = array_filter([
+                                    $result['tbr']['detail']['title_keyword'] ?? null,
+                                    $result['tbr']['detail']['name_keyword']  ?? null,
+                                ]);
+                            @endphp
+                            {{ count($kws) ? '"' . implode('" and "', $kws) . '"' : 'none' }}
+                        </strong>
+                    </div>
                     <div class="retrieval-row" style="margin-top:8px">
                         Prediction :
                         <span class="badge {{ strtolower($result['tbr']['prediction']) === 'male' ? 'badge-male' : 'badge-female' }}">

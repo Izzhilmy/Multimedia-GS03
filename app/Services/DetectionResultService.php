@@ -30,7 +30,7 @@ class DetectionResultService
         TextInfo::create([
             'user_profile_id' => $profile->id,
             'honorific_title' => $data['tbr']['detail']['honorific'] ?? null,
-            'name_keyword'    => $data['tbr']['detail']['keyword'] ?? null,
+            'name_keyword'    => $data['tbr']['detail']['name_keyword'] ?? null,
             'tbr_result'      => $fusion['tbr_result'],
         ]);
 
