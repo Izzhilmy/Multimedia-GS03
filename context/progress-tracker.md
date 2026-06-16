@@ -8,13 +8,13 @@ current state without re-reading all docs.
 
 ## Current Phase
 
-Unit 05 complete. Ready for Unit 06.
+All 6 units complete. Project fully implemented.
 
 ---
 
 ## Current Goal
 
-Complete Unit 06: History — student's past detection results.
+All units done. Verify, polish, or submit as required.
 
 ---
 
@@ -29,7 +29,7 @@ Units are ordered by dependency. Never skip ahead.
 | 03 | Database objects — indexes, views | ✅ Complete |
 | 04 | Auth — cross-DB login against mmdb2026.stu, session, middleware | ✅ Complete |
 | 05 | Gender detection — form, ABR+TBR+CBR+fusion, result page | ✅ Complete |
-| 06 | History — student's past detection results | ⬜ Not started |
+| 06 | History — student's past detection results | ✅ Complete |
 
 ---
 
@@ -87,6 +87,12 @@ Use matric_no `B032420099` / password `123` for local dev testing.
 - 4 indexes: idx_user_profiles_matric_no, idx_detection_results_user_profile_id, idx_detection_results_final_gender, idx_image_analysis_user_profile_id
 - View: student_detection_summary (joins user_profiles + detection_results, ordered by latest)
 - All objects verified in gs03 via information_schema
+
+### Unit 06 — History
+- HistoryController queries `student_detection_summary` view filtered by `session('student.matric_no')`, paginated 10
+- History view: dark-navy card, overflow:hidden table, badge-male/badge-female, confidence bar (cyan fill), Carbon date format
+- Empty state with link to /detection; `$results->links()` pagination (only shown if hasPages)
+- Verified: /history unauthenticated → 302 login, logged-in student sees own rows, different student sees empty state
 
 ### Unit 02 — Database Migrations
 - 5 tables created in gs03: user_profiles, id_card_info, text_info, image_analysis, detection_results
