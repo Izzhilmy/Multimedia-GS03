@@ -12,13 +12,8 @@ class DetectionResultService
 {
     public function execute(array $data, array $fusion): DetectionResult
     {
-        $profile = UserProfile::updateOrCreate(
-            ['matric_no' => $data['matric_no']],
-            [
-                'full_name'  => $data['full_name'],
-                'ic_number'  => $data['ic_number'],
-                'image_path' => $data['image_path'] ?? null,
-            ]
+        $profile = UserProfile::firstOrCreate(
+            ['matric_no' => $data['matric_no']]
         );
 
         IdCardInfo::create([
@@ -45,6 +40,9 @@ class DetectionResultService
 
         return DetectionResult::create([
             'user_profile_id' => $profile->id,
+            'full_name'       => $data['full_name'],
+            'ic_number'       => $data['ic_number'],
+            'image_path'      => $data['image_path'] ?? null,
             'abr_result'      => $fusion['abr_result'],
             'tbr_result'      => $fusion['tbr_result'],
             'cbr_result'      => $fusion['cbr_result'],

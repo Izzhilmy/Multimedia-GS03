@@ -9,7 +9,7 @@ class DetectionResult extends Model
     protected $connection = 'mysql';
     protected $table      = 'detection_results';
     protected $fillable   = [
-        'user_profile_id', 'abr_result', 'tbr_result',
-        'cbr_result', 'final_gender', 'confidence',
+        'user_profile_id', 'full_name', 'ic_number', 'image_path',
+        'abr_result', 'tbr_result', 'cbr_result', 'final_gender', 'confidence',
     ];
 }
