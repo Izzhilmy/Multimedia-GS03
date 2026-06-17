@@ -175,6 +175,9 @@
                             {{ count($kws) ? '"' . implode('" and "', $kws) . '"' : 'none' }}
                         </strong>
                     </div>
+                    @if($result['tbr']['detail']['first_name'] ?? null)
+                    <div class="retrieval-row">First Name : <strong>"{{ $result['tbr']['detail']['first_name'] }}"</strong></div>
+                    @endif
                     <div class="retrieval-row" style="margin-top:8px">
                         Prediction :
                         <span class="badge {{ strtolower($result['tbr']['prediction']) === 'male' ? 'badge-male' : 'badge-female' }}">
