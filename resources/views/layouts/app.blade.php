@@ -127,6 +127,8 @@
                href="{{ route('detection.form') }}">Detection</a>
             <a class="nav-link {{ request()->routeIs('history.*') ? 'active' : '' }}"
                href="{{ route('history.index') }}">History</a>
+            <a class="nav-link {{ request()->routeIs('search.*') ? 'active' : '' }}"
+               href="{{ route('search.index') }}">Search</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="nav-logout">Logout</button>
