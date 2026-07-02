@@ -89,7 +89,7 @@
                 <button type="submit" class="btn-search">Search</button>
             </div>
         </form>
-        <p class="hint">Try: "female", "male ahmad", "binti siti", "bin ali"</p>
+        <p class="hint">Try: "female with hijab", "male short hair no beard", "female binti long hair", "lelaki janggut"</p>
 
         @if($results !== null)
             @if($results->isEmpty())
