@@ -84,7 +84,7 @@
         <form method="GET" action="{{ route('search.index') }}">
             <div class="search-row">
                 <input type="text" name="q" class="search-input"
-                    placeholder="Describe a person... e.g. female binti, male ahmad"
+                    placeholder="Describe a person..."
                     value="{{ $description }}" autofocus autocomplete="off">
                 <button type="submit" class="btn-search">Search</button>
             </div>
