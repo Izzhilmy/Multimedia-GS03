@@ -26,7 +26,7 @@ class TextSearchService
         'wearing', 'wears', 'have', 'about', 'person', 'people', 'someone',
     ];
 
-    public function search(string $description, string $matricNo)
+    public function search(string $description)
     {
         $text  = strtolower(trim($description));
         $words = preg_split('/\s+/', $text);
@@ -38,8 +38,7 @@ class TextSearchService
         $nameHint  = $this->extractNameHint($words, $text);
 
         $query = DB::connection('mysql')
-            ->table('student_detection_summary')
-            ->where('matric_no', $matricNo);
+            ->table('student_detection_summary');
 
         if ($gender    !== null) $query->where('final_gender',      $gender);
         if ($isHijab   !== null) $query->where('is_hijab_detected', $isHijab);

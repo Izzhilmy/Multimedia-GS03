@@ -13,7 +13,7 @@ class SearchController extends Controller
     {
         $description = trim($request->input('q', ''));
         $results     = $description !== ''
-            ? $this->searchService->search($description, session('student.matric_no'))
+            ? $this->searchService->search($description)
             : null;
 
         return view('search.index', compact('description', 'results'));
