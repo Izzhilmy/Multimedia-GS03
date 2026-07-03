@@ -9,7 +9,7 @@ class AuthService
     public function execute(string $matricNo, string $password): ?object
     {
         $student = DB::connection('mmdb')
-            ->table('stu')
+            ->table('vstu')
             ->where('matric_no', $matricNo)
             ->first();
 

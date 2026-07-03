@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class StuUser extends Model
 {
     protected $connection = 'mmdb';
-    protected $table      = 'stu';
+    protected $table      = 'vstu';
     public    $timestamps = false;
 
     protected $fillable = [];
