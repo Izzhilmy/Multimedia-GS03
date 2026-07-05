@@ -83,27 +83,17 @@
             <td class="profile-value">{{ $student->life_motto ?? '—' }}</td>
         </tr>
         <tr>
-            <td class="profile-label">Photo File</td>
-            <td class="profile-value {{ $student->photoStu ? '' : 'muted' }}">
-                {{ $student->photoStu ?? 'Not uploaded' }}
-            </td>
-        </tr>
-        <tr>
-            <td class="profile-label">Photo Date</td>
-            <td class="profile-value {{ $student->photoStu_date ? '' : 'muted' }}">
-                {{ $student->photoStu_date ?? '—' }}
-            </td>
-        </tr>
-        <tr>
-            <td class="profile-label">Document File</td>
-            <td class="profile-value {{ $student->docStu ? '' : 'muted' }}">
-                {{ $student->docStu ?? 'Not uploaded' }}
-            </td>
-        </tr>
-        <tr>
-            <td class="profile-label">Document Date</td>
-            <td class="profile-value {{ $student->docStu_date ? '' : 'muted' }}">
-                {{ $student->docStu_date ?? '—' }}
+            <td class="profile-label">Photo</td>
+            <td class="profile-value">
+                @if ($student->photoStu)
+                    <img src="{{ $student->photoStu }}"
+                         alt="{{ $student->full_name }}"
+                         style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid rgba(240,230,200,0.3);"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div style="display:none;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(240,230,200,0.3);align-items:center;justify-content:center;font-size:32px;">👤</div>
+                @else
+                    <div style="width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(240,230,200,0.3);display:flex;align-items:center;justify-content:center;font-size:32px;">👤</div>
+                @endif
             </td>
         </tr>
     </table>
