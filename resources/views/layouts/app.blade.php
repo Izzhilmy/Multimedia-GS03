@@ -129,6 +129,8 @@
                href="{{ route('history.index') }}">History</a>
             <a class="nav-link {{ request()->routeIs('search.*') ? 'active' : '' }}"
                href="{{ route('search.index') }}">Search</a>
+            <a class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}"
+               href="{{ route('profile.show') }}">Profile</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="nav-logout">Logout</button>
