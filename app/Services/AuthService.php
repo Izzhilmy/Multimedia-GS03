@@ -10,10 +10,10 @@ class AuthService
     {
         $student = DB::connection('mmdb')
             ->table('vstu')
-            ->where('matric_no', $matricNo)
+            ->whereRaw('UPPER(matric_no) = ?', [strtoupper($matricNo)])
             ->first();
 
-        if (!$student || $student->password === null) {
+        if (!$student || empty($student->password)) {
             return null;
         }
 
