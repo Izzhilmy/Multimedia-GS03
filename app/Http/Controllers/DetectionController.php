@@ -27,13 +27,12 @@ class DetectionController extends Controller
     public function analyze(Request $request)
     {
         $request->validate([
-            'full_name'   => 'required|string|max:255',
-            'ic_number'   => 'required|string|max:20',
-            'honorific'   => 'nullable|string|max:20',
-            'hair_length' => 'required|in:Short,Medium,Long',
-            'is_hijab'    => 'nullable',
-            'facial_hair' => 'nullable',
-            'photo'       => 'nullable|image|max:2048',
+            'full_name'      => 'required|string|max:255',
+            'ic_number'      => 'required|string|max:20',
+            'honorific'      => 'nullable|string|max:20',
+            'photo'          => 'nullable|image|max:2048',
+            'cbr_gender'     => 'nullable|in:Male,Female',
+            'cbr_confidence' => 'nullable|integer|min:0|max:100',
         ]);
 
         $imagePath = null;
@@ -47,9 +46,8 @@ class DetectionController extends Controller
             $request->input('honorific', '')
         );
         $cbr = $this->cbrService->execute(
-            $request->input('hair_length'),
-            (bool) $request->input('is_hijab'),
-            (bool) $request->input('facial_hair')
+            $request->input('cbr_gender', 'Female'),
+            (int) $request->input('cbr_confidence', 50)
         );
 
         $fusion = $this->fusionService->execute(

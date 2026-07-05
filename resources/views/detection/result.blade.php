@@ -149,9 +149,7 @@
             <div>
                 <div class="retrieval-card">
                     <div class="retrieval-title">Content Based Retrieval</div>
-                    <div class="retrieval-row">Hijab Detected : <strong>{{ $result['cbr']['detail']['is_hijab'] ? 'Yes' : 'No' }}</strong></div>
-                    <div class="retrieval-row">Hair Length : <strong>{{ $result['cbr']['detail']['hair_length'] }}</strong></div>
-                    <div class="retrieval-row">Facial Hair : <strong>{{ $result['cbr']['detail']['has_facial_hair'] ? 'Yes' : 'No' }}</strong></div>
+                    <div class="retrieval-row">Method : <strong>Face Analysis (Auto)</strong></div>
                     <div class="retrieval-row" style="margin-top:8px">
                         Prediction :
                         <span class="badge {{ strtolower($result['cbr']['prediction']) === 'male' ? 'badge-male' : 'badge-female' }}">

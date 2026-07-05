@@ -31,9 +31,9 @@ class DetectionResultService
 
         ImageAnalysis::create([
             'user_profile_id'   => $profile->id,
-            'hair_feature'      => $data['cbr']['detail']['hair_length'],
-            'is_hijab_detected' => $data['cbr']['detail']['is_hijab'],
-            'has_facial_hair'   => $data['cbr']['detail']['has_facial_hair'],
+            'hair_feature'      => null,
+            'is_hijab_detected' => false,
+            'has_facial_hair'   => false,
             'confidence_score'  => $data['cbr']['detail']['confidence'],
             'cbr_result'        => $fusion['cbr_result'],
         ]);
@@ -43,9 +43,9 @@ class DetectionResultService
             'full_name'         => $data['full_name'],
             'ic_number'         => $data['ic_number'],
             'image_path'        => $data['image_path'] ?? null,
-            'hair_feature'      => $data['cbr']['detail']['hair_length'],
-            'is_hijab_detected' => $data['cbr']['detail']['is_hijab'],
-            'has_facial_hair'   => $data['cbr']['detail']['has_facial_hair'],
+            'hair_feature'      => null,
+            'is_hijab_detected' => false,
+            'has_facial_hair'   => false,
             'abr_result'        => $fusion['abr_result'],
             'tbr_result'        => $fusion['tbr_result'],
             'cbr_result'        => $fusion['cbr_result'],
