@@ -61,6 +61,21 @@
     <div class="flash-error">Unable to load profile data.</div>
 @else
 <div class="profile-card">
+    <div style="padding:24px 20px;border-bottom:1px solid rgba(240,230,200,0.07);display:flex;align-items:center;gap:20px;">
+        @if ($student->photoStu)
+            <img src="{{ $student->photoStu }}"
+                 alt="{{ $student->full_name }}"
+                 style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid rgba(240,230,200,0.3);flex-shrink:0;"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div style="display:none;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(240,230,200,0.3);align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">👤</div>
+        @else
+            <div style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(240,230,200,0.3);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">👤</div>
+        @endif
+        <div>
+            <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--cream);">{{ $student->full_name ?? '—' }}</div>
+            <div style="font-size:12px;color:var(--cream3);margin-top:4px;">{{ $student->matric_no ?? '' }}</div>
+        </div>
+    </div>
     <table class="profile-table">
         <tr>
             <td class="profile-label">Full Name</td>
@@ -81,20 +96,6 @@
         <tr>
             <td class="profile-label">Life Motto</td>
             <td class="profile-value">{{ $student->life_motto ?? '—' }}</td>
-        </tr>
-        <tr>
-            <td class="profile-label">Photo</td>
-            <td class="profile-value">
-                @if ($student->photoStu)
-                    <img src="{{ $student->photoStu }}"
-                         alt="{{ $student->full_name }}"
-                         style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid rgba(240,230,200,0.3);"
-                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div style="display:none;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(240,230,200,0.3);align-items:center;justify-content:center;font-size:32px;">👤</div>
-                @else
-                    <div style="width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(240,230,200,0.3);display:flex;align-items:center;justify-content:center;font-size:32px;">👤</div>
-                @endif
-            </td>
         </tr>
     </table>
 </div>
