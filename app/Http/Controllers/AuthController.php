@@ -24,14 +24,15 @@ class AuthController extends Controller
             'password'  => 'required|string',
         ]);
 
-        $student = $this->authService->execute(
+        $result  = $this->authService->execute(
             $request->input('matric_no'),
             $request->input('password')
         );
+        $student = $result['student'];
 
         if (!$student) {
             return back()
-                ->withErrors(['matric_no' => 'Invalid matric number or password.'])
+                ->withErrors(['matric_no' => $result['error']])
                 ->withInput(['matric_no' => $request->input('matric_no')]);
         }
 
