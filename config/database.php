@@ -50,8 +50,8 @@ return [
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'gs03'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', '1234'),
+            'username' => env('DB_USERNAME', 'GS03GENDER'),
+            'password' => env('DB_PASSWORD', 'GS03'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -62,20 +62,6 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
-        ],
-
-        'mmdb' => [
-            'driver' => 'mysql',
-            'host' => env('DB_MMDB_HOST', '127.0.0.1'),
-            'port' => env('DB_MMDB_PORT', '3306'),
-            'database' => env('DB_MMDB_DATABASE', 'mmdb2026'),
-            'username' => env('DB_MMDB_USERNAME', 'GS03GENDER'),
-            'password' => env('DB_MMDB_PASSWORD', 'GS03'),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'strict' => true,
-            'engine' => null,
         ],
 
         'mariadb' => [

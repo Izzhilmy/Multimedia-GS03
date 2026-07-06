@@ -57,7 +57,7 @@ class DetectionController extends Controller
         );
 
         $this->resultService->execute([
-            'matric_no'  => session('student.matric_no'),
+            'matric_no'  => $request->input('ic_number'),
             'full_name'  => $request->input('full_name'),
             'ic_number'  => $request->input('ic_number'),
             'image_path' => $imagePath,

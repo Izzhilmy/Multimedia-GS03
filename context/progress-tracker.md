@@ -8,13 +8,13 @@ current state without re-reading all docs.
 
 ## Current Phase
 
-All 6 units complete. Project fully implemented.
+Restructured as no-auth version (GenderDetection deployment).
 
 ---
 
 ## Current Goal
 
-All units done. Verify, polish, or submit as required.
+Deploy to server as `GenderDetection/` folder. Access via `/public/` base URL.
 
 ---
 

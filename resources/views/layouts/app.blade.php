@@ -122,19 +122,12 @@
     <nav>
         <a class="nav-brand" href="{{ route('detection.form') }}">GENDER DETECTION SYSTEM</a>
         <div class="nav-right">
-            <span class="nav-matric">{{ session('student.matric_no') }}</span>
             <a class="nav-link {{ request()->routeIs('detection.*') ? 'active' : '' }}"
                href="{{ route('detection.form') }}">Detection</a>
             <a class="nav-link {{ request()->routeIs('history.*') ? 'active' : '' }}"
                href="{{ route('history.index') }}">History</a>
             <a class="nav-link {{ request()->routeIs('search.*') ? 'active' : '' }}"
                href="{{ route('search.index') }}">Search</a>
-            <a class="nav-link {{ request()->routeIs('profile.*') ? 'active' : '' }}"
-               href="{{ route('profile.show') }}">Profile</a>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="nav-logout">Logout</button>
-            </form>
         </div>
     </nav>
 
