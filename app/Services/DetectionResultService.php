@@ -32,7 +32,7 @@ class DetectionResultService
 
         ImageAnalysis::create([
             'user_profile_id'   => $profile->id,
-            'hair_feature'      => null,
+            'hair_feature'      => 'auto',
             'is_hijab_detected' => false,
             'has_facial_hair'   => false,
             'confidence_score'  => $data['cbr']['detail']['confidence'],
