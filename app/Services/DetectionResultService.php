@@ -13,7 +13,8 @@ class DetectionResultService
     public function execute(array $data, array $fusion): DetectionResult
     {
         $profile = UserProfile::firstOrCreate(
-            ['matric_no' => $data['matric_no']]
+            ['matric_no' => $data['matric_no']],
+            ['full_name' => $data['full_name']]
         );
 
         IdCardInfo::create([
