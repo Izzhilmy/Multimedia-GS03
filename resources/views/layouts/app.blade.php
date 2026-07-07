@@ -128,6 +128,7 @@
                href="{{ route('history.index') }}">History</a>
             <a class="nav-link {{ request()->routeIs('search.*') ? 'active' : '' }}"
                href="{{ route('search.index') }}">Search</a>
+            <a class="nav-logout" href="https://bitp3353.utem.edu.my/2026/all/GroupMDB/GS03/">Exit</a>
         </div>
     </nav>
 
