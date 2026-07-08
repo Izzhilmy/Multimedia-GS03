@@ -84,12 +84,12 @@
         <form method="GET" action="{{ route('search.index') }}">
             <div class="search-row">
                 <input type="text" name="q" class="search-input"
-                    placeholder="Describe a person..."
+                    placeholder="Describe a person by gender or name..."
                     value="{{ $description }}" autofocus autocomplete="off">
                 <button type="submit" class="btn-search">Search</button>
             </div>
         </form>
-        <p class="hint">Try: "female with hijab", "male short hair no beard", "female binti long hair", "lelaki janggut"</p>
+        <p class="hint">Try: "female", "male", "female Ahmad", "lelaki", "perempuan Siti"</p>
 
         @if($results !== null)
             @if($results->isEmpty())
