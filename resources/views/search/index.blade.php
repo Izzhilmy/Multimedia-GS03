@@ -89,7 +89,7 @@
                 <button type="submit" class="btn-search">Search</button>
             </div>
         </form>
-        <p class="hint">Try: "female", "male", "female Ahmad", "lelaki", "perempuan Siti"</p>
+        <p class="hint">Search by gender or name — e.g. "female", "male Ahmad", "perempuan Siti", "lelaki".</p>
 
         @if($results !== null)
             @if($results->isEmpty())
